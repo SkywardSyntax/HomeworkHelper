@@ -8,34 +8,62 @@
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  display: inline-block;
+  width: auto;
+}
+
+.frostedGlassChip {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  display: inline-block;
 }
 
 .todoList {
   margin-top: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .todoList input[type="text"] {
-  padding: 5px;
+  padding: 10px;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 22px);
 }
 
 .todoList button {
   margin-left: 10px;
-  padding: 5px 10px;
+  padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.todoList button:hover {
+  background: #005bb5;
 }
 
 .todoList ul {
   list-style-type: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 .todoList li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .todoList li button {

@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CurrentTime from '../components/CurrentTime';
+import GitHubCopilotIcon from '../components/GitHubCopilotIcon';
 import styles from '../styles/home.module.css';
 
 function Home() {
   const [todos, setTodos] = useState<string[]>([]);
   const [newTodo, setNewTodo] = useState('');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const addTodo = () => {
     if (newTodo.trim() !== '') {
@@ -21,9 +27,9 @@ function Home() {
     <main className={styles.main}>
       <div>
         <p>Current Time:</p>
-        <CurrentTime />
+        {isClient && <CurrentTime />}
       </div>
-      <div>
+      <div className={styles.todoList}>
         <h2>Todo List</h2>
         <input
           type="text"
@@ -40,6 +46,8 @@ function Home() {
           ))}
         </ul>
       </div>
+      <GitHubCopilotIcon />
+
     </main>
   );
 }
