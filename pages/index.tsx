@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import CurrentTime from '../components/CurrentTime';
-import GitHubCopilotIcon from '../components/GitHubCopilotIcon';
 import styles from '../styles/home.module.css';
 
 function Home() {
@@ -46,8 +45,6 @@ function Home() {
           ))}
         </ul>
       </div>
-      <GitHubCopilotIcon />
-
     </main>
   );
 }
