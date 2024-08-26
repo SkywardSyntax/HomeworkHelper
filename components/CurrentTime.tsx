@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/home.module.css';
+import DraggableComponent from './DraggableComponent';
 
 function CurrentTime() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
@@ -21,9 +22,9 @@ function CurrentTime() {
   }, [isClient]);
 
   return (
-    <div>
+    <DraggableComponent id="currentTime">
       {isClient && <div className={styles.currentTime}>{time}</div>}
-    </div>
+    </DraggableComponent>
   );
 }
 

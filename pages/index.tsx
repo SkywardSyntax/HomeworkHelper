@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import CurrentTime from '../components/CurrentTime';
 import styles from '../styles/home.module.css';
+import DraggableComponent from '../components/DraggableComponent';
+import TodoList from '../components/TodoList';
 
 function Home() {
   const [todos, setTodos] = useState<string[]>([]);
@@ -24,27 +26,14 @@ function Home() {
 
   return (
     <main className={styles.main}>
-      <div>
-        <p>Current Time:</p>
+      <DraggableComponent id="currentTime">
         {isClient && <CurrentTime />}
-      </div>
-      <div className={styles.todoList}>
-        <h2>Todo List</h2>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="Add a new todo"
-        />
-        <button onClick={addTodo}>Add</button>
-        <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>
-              {todo} <button onClick={() => removeTodo(index)}>Remove</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      </DraggableComponent>
+      <DraggableComponent id="todoList">
+        <div className={styles.todoList}>
+          <TodoList />
+        </div>
+      </DraggableComponent>
     </main>
   );
 }
