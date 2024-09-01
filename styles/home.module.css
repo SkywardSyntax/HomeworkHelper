@@ -19,6 +19,12 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  width: fit-content;
+  height: fit-content;
 }
 
 .todoList {
