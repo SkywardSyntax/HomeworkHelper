@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, TextInput, Text, Heading, List, ListItem } from '@primer/react';
 
 const TodoList = () => {
   const [todos, setTodos] = useState<{ text: string, dueDate: string }[]>([]);
   const [newTodo, setNewTodo] = useState('');
   const [dueDate, setDueDate] = useState('');
+
+  useEffect(() => {
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = () => {
     if (newTodo.trim() !== '' && dueDate.trim() !== '') {
