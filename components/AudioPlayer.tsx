@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState(0);
-  const audioRef = useRef(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const tracks = [
     'track1.mp3',
@@ -13,10 +13,12 @@ const AudioPlayer = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
-    if (isPlaying) {
-      audio.play();
-    } else {
-      audio.pause();
+    if (audio) {
+      if (isPlaying) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
     }
   }, [isPlaying]);
 
@@ -34,9 +36,11 @@ const AudioPlayer = () => {
 
   useEffect(() => {
     const audio = audioRef.current;
-    audio.src = tracks[currentTrack];
-    if (isPlaying) {
-      audio.play();
+    if (audio) {
+      audio.src = tracks[currentTrack];
+      if (isPlaying) {
+        audio.play();
+      }
     }
   }, [currentTrack]);
 

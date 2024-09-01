@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, TextInput, Text, Heading, List, ListItem } from '@primer/react';
+import { Box, Button, TextInput, Text, Heading } from '@primer/react';
 
 const TodoList = () => {
   const [todos, setTodos] = useState<{ text: string, dueDate: string }[]>([]);
@@ -33,7 +33,7 @@ const TodoList = () => {
 
   return (
     <Box p={3} borderRadius={2} boxShadow="medium" bg="canvas.default">
-      <Heading as="h2" mb={3}>Todo List</Heading>
+      <Heading as="h2" sx={{ mb: 3 }}>Todo List</Heading>
       <Box display="flex" mb={3}>
         <TextInput
           value={newTodo}
@@ -49,14 +49,14 @@ const TodoList = () => {
         />
         <Button onClick={addTodo}>Add</Button>
       </Box>
-      <List>
+      <ul>
         {sortedTodos.map((todo, index) => (
-          <ListItem key={index} display="flex" justifyContent="space-between" alignItems="center">
+          <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Text>{todo.text} (Due: {todo.dueDate})</Text>
             <Button onClick={() => removeTodo(index)} variant="danger">Remove</Button>
-          </ListItem>
+          </li>
         ))}
-      </List>
+      </ul>
     </Box>
   );
 };
